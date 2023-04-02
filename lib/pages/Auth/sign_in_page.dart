@@ -36,34 +36,88 @@ class SignInPage extends StatelessWidget {
               child: Center(
                 child: Container(
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
+                      const Text('Войти', style: TextStyle(fontSize: 36, fontWeight: FontWeight.w700, color: Color.fromARGB(255, 251, 188, 5)),),
+                      const SizedBox(height: 8,),
+                      const Text('Введите ваш логин и пароль, чтобы войти!', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: Color.fromARGB(255, 158, 166, 190)),),
+                      const SizedBox(height: 36,),
+                      Container(
+                        color: const Color.fromARGB(255, 244, 247, 254),
+                        child: Material(
+                          color: Colors.transparent,
+                          child: InkWell(
+                            customBorder: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            onTap: (){},
+                            child: Container(
+                              height: 50,
+                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                Image.asset('assets/images/auth_page/Vk.png', width: 20,),
+                                const SizedBox(width: 8,),
+                                const Text('Войти с помощью Vk', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: Color.fromARGB(255, 158, 166, 190)),),
+                              ]),
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 40,),
                       PrimaryTextField(
                         controller: _textFormLoginController,
-                        labelText: 'login',
+                        labelText: 'Электронная почта',
                         labelStyle: TextStyle(),
                         validator: (ex) {},
                       ),
-                      SizedBox(
-                        height: 20,
+                      const SizedBox(
+                        height: 40,
                       ),
                       PrimaryTextField(
                         obscureText: true,
                         controller: _textFormPasswordController,
-                        labelText: 'password',
+                        labelText: 'Пароль',
                         labelStyle: TextStyle(),
                         validator: (ex) {},
                       ),
-                      SizedBox(
-                        height: 20,
+                      const SizedBox(
+                        height: 40,
                       ),
                       //LOG
+                      // Container(
+                      //   color: Color.fromARGB(255, 93, 136, 212),
+                      //   child: Material(
+                      //     color: Colors.transparent,
+                      //     child: InkWell(
+                      //       onTap: () {
+                      //         // if (_formKey.currentState!.validate()) {
+                      //         context.read<SignInBloc>().add(
+                      //               SignInAuth(
+                      //                 username: _textFormLoginController.text,
+                      //                 password:
+                      //                     _textFormPasswordController.text,
+                      //               ),
+                      //             );
+                      //         // }
+                      //       },
+                      //       child: Container(
+                      //         height: 50,
+                      //         child: Center(child: Text('LogIn')),
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ),
                       Container(
-                        color: Color.fromARGB(255, 93, 136, 212),
+                        color: Color.fromARGB(255, 251, 188, 5),
                         child: Material(
                           color: Colors.transparent,
                           child: InkWell(
-                            onTap: () {
-                              // if (_formKey.currentState!.validate()) {
+                            customBorder: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            onTap: (){
                               context.read<SignInBloc>().add(
                                     SignInAuth(
                                       username: _textFormLoginController.text,
@@ -71,11 +125,15 @@ class SignInPage extends StatelessWidget {
                                           _textFormPasswordController.text,
                                     ),
                                   );
-                              // }
                             },
                             child: Container(
                               height: 50,
-                              child: Center(child: Text('LogIn')),
+                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text('Войти', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Colors.white),)
+                              ]),
                             ),
                           ),
                         ),
@@ -84,21 +142,33 @@ class SignInPage extends StatelessWidget {
                         height: 20,
                       ),
                       //REG
-                      Container(
-                        color: Color.fromARGB(255, 173, 193, 202),
-                        child: Material(
+                      Row(children: [
+                        Text('Не зарегестрирован? ', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400,)),
+                        Material(
                           color: Colors.transparent,
                           child: InkWell(
-                            onTap: () {
+                            onTap: (){
                               context.go(Routes.signUpPage);
                             },
-                            child: Container(
-                              height: 50,
-                              child: Center(child: Text('Registration')),
-                            ),
-                          ),
+                            child: Text('Создать аккаунт', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: Color.fromARGB(255, 251, 188, 5)))),
                         ),
-                      ),
+                      ],),
+
+                      // Container(
+                      //   color: Color.fromARGB(255, 173, 193, 202),
+                      //   child: Material(
+                      //     color: Colors.transparent,
+                      //     child: InkWell(
+                      //       onTap: () {
+                      //         context.go(Routes.signUpPage);
+                      //       },
+                      //       child: Container(
+                      //         height: 50,
+                      //         child: Center(child: Text('Registration')),
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),

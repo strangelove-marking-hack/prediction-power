@@ -32,6 +32,7 @@ flutter:
     - assets/images/main_page/HonestSign.png
     - assets/images/main_page/YellowMark.png
     - assets/images/main_page/Map.png
+    - assets/images/auth_page/Vk.png
   #   - images/a_dot_ham.jpeg
 
   # fonts:
