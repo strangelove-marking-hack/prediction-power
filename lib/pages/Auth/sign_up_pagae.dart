@@ -40,61 +40,55 @@ class SignUpPage extends StatelessWidget {
               child: Center(
                 child: Column(
                   children: <Widget>[
+                    const Text('Регистрация', style: TextStyle(fontSize: 36, fontWeight: FontWeight.w700, color: Color.fromARGB(255, 251, 188, 5)),),
+                    const SizedBox(height: 40,),
                     PrimaryTextField(
                       controller: _textFormUserNameController,
-                      labelText: 'login',
+                      labelText: 'Ваш логин',
                       labelStyle: TextStyle(),
                       validator: (ex) {},
                     ),
-                    SizedBox(
-                      height: 10,
-                    ),
+                    const SizedBox(height: 40,),
                     PrimaryTextField(
                       obscureText: true,
                       controller: _textFormPasswordController,
-                      labelText: 'password',
+                      labelText: 'Пароль',
                       labelStyle: TextStyle(),
                       validator: (ex) {},
                     ),
-                    SizedBox(
-                      height: 10,
-                    ),
+                    const SizedBox(height: 40,),
                     PrimaryTextField(
                       controller: _textFormEmailController,
-                      labelText: 'email',
+                      labelText: 'Email',
                       labelStyle: TextStyle(),
                       validator: (ex) {},
                     ),
-                    SizedBox(
-                      height: 10,
-                    ),
+                    const SizedBox(height: 40,),
                     PrimaryTextField(
                       controller: _textFormFioController,
-                      labelText: 'fio',
+                      labelText: 'ФИО',
                       labelStyle: TextStyle(),
                       validator: (ex) {},
                     ),
-                    SizedBox(
-                      height: 10,
-                    ),
+                    const SizedBox(height: 40,),
                     PrimaryTextField(
                       controller: _textFormPhoneController,
-                      labelText: 'phone',
+                      labelText: 'Телефон',
                       labelStyle: TextStyle(),
                       validator: (ex) {},
                     ),
-                    SizedBox(
-                      height: 20,
-                    ),
+                    const SizedBox(height: 40,),
                     //REG
                     Container(
-                      color: Color.fromARGB(255, 173, 193, 202),
-                      child: Material(
-                        color: Colors.transparent,
-                        child: InkWell(
-                          onTap: () {
-                            // if (_formKey.currentState!.validate()) {
-                            context.read<SignUpBloc>().add(
+                        color: Color.fromARGB(255, 251, 188, 5),
+                        child: Material(
+                          color: Colors.transparent,
+                          child: InkWell(
+                            customBorder: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            onTap: (){
+                              context.read<SignUpBloc>().add(
                                   SignUpReg(
                                     username: _textFormUserNameController.text,
                                     password: _textFormPasswordController.text,
@@ -103,15 +97,44 @@ class SignUpPage extends StatelessWidget {
                                     phone: _textFormPhoneController.text,
                                   ),
                                 );
-                            // }
-                          },
-                          child: Container(
-                            height: 50,
-                            child: Center(child: Text('Registration')),
+                            },
+                            child: Container(
+                              height: 50,
+                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text('Зарегистрироваться', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Colors.white),)
+                              ]),
+                            ),
                           ),
                         ),
                       ),
-                    ),
+                    // Container(
+                    //   color: Color.fromARGB(255, 173, 193, 202),
+                    //   child: Material(
+                    //     color: Colors.transparent,
+                    //     child: InkWell(
+                    //       onTap: () {
+                    //         // if (_formKey.currentState!.validate()) {
+                    //         context.read<SignUpBloc>().add(
+                    //               SignUpReg(
+                    //                 username: _textFormUserNameController.text,
+                    //                 password: _textFormPasswordController.text,
+                    //                 email: _textFormEmailController.text,
+                    //                 fio: _textFormFioController.text,
+                    //                 phone: _textFormPhoneController.text,
+                    //               ),
+                    //             );
+                    //         // }
+                    //       },
+                    //       child: Container(
+                    //         height: 50,
+                    //         child: Center(child: Text('Registration')),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 ),
               ),

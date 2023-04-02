@@ -31,8 +31,8 @@ class MyApp extends StatelessWidget {
       ),
       routerConfig: GoRouter(
         initialLocation:
-            // (authService.token == '') ? Routes.signInPage : Routes.mainPage,
-            Routes.mainPage,
+            (authService.token == '') ? Routes.signInPage : Routes.mainPage,
+            // Routes.signUpPage,
         routes: <GoRoute>[
           GoRoute(
             path: Routes.mainPage,
