@@ -162,3 +162,90 @@ class MainPage extends StatelessWidget {
     );
   }
 }
+<<<<<<< Updated upstream
+=======
+
+class SortingWidget extends StatefulWidget {
+  SortingWidget({super.key});
+
+  final List statusList = [-1, -1, -1, -1];
+
+  @override
+  State<SortingWidget> createState() => _SortingWidgetState();
+}
+
+class _SortingWidgetState extends State<SortingWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 50),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: const [
+            ContentBox('assets/images/main_page/Beer.png', 'Пиво и слабоалкогольные напитки'),
+            ContentBox('assets/images/main_page/MilkProduct.png', 'Молочная продукция'),
+            ContentBox('assets/images/main_page/Water.png', 'Упакованная вода'),
+            ContentBox('assets/images/main_page/TouletWater.png', 'Духи и туалетная вода'), 
+          ]),
+        ),
+        const Divider(
+          thickness: 1,
+          endIndent: 60,
+          indent: 60,
+          height: 46,
+        ),
+        // Padding(
+        //   padding: const EdgeInsets.symmetric(horizontal: 60),
+        //   child: ,)
+      ],
+    );
+  }
+}
+
+class ContentBox extends StatelessWidget {
+  const ContentBox(this.imagePath, this.textContent, {super.key});
+  final String imagePath;
+  final String textContent;
+  
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+            color: Colors.transparent,
+            child: InkWell(
+              customBorder: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30),
+              ),
+              onTap: (){},
+              child: SizedBox(
+                height: 250,
+                width: 300,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    border: Border.all(width: 1)
+                  ),
+                  child: Column(children: [
+                    const SizedBox(height: 58,),
+                    Image.asset(imagePath, height: 77,),
+                    const SizedBox(height: 33,),
+                    Container(
+                      width: 201,
+                      child: Text(
+                        textContent,
+                        overflow: TextOverflow.clip,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                    const Expanded(child: SizedBox()),
+                  ]),
+                ),
+              ),
+            ),
+          );
+  }
+}
+>>>>>>> Stashed changes
