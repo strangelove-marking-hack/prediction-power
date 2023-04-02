@@ -162,8 +162,6 @@ class MainPage extends StatelessWidget {
     );
   }
 }
-<<<<<<< Updated upstream
-=======
 
 class SortingWidget extends StatefulWidget {
   SortingWidget({super.key});
@@ -248,4 +246,3 @@ class ContentBox extends StatelessWidget {
           );
   }
 }
->>>>>>> Stashed changes
