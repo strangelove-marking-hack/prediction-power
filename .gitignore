@@ -26,3 +26,8 @@ doc/api/
 
 .flutter-plugins
 .flutter-plugins-dependencies
+.dart_tool/package_config.json
+.dart_tool/package_config.json
+.dart_tool/package_config_subset
+ios/Flutter/Debug.xcconfig
+ios/Flutter/Release.xcconfig
